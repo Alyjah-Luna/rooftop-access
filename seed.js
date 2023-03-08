@@ -1,16 +1,13 @@
 require('dotenv').config()
 require('./config/database')
 
-const Note = require('./models/note')
+const Map = require('./models/map')
 
 (async function() {
-    await Note.deleteMany({})
-    const notes = Note.create([
-        {note: '1st note'},
-        {note: '2nd note'}
-    ])
+    await Map.deleteMany({})
+    const maps = Map.create([])
 
-    console.log(notes)
+    console.log(maps)
 
     process.exit()
 })()

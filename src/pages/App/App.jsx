@@ -3,8 +3,7 @@ import { useState } from 'react'
 import { getUser } from '../../utilities/users-service'
 import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar'
-import NoteList from '../NoteList/NoteList';
-import NewNoteForm from '../../components/NewNoteForm.jsx/NewNoteForm';
+import RooftopList from '../RooftopList/RooftopList';
 
 export default function App() {
   const [ user, setUser ] = useState(getUser())
@@ -15,8 +14,7 @@ export default function App() {
         user ? 
         <>
           <NavBar user={user} setUser={setUser} />
-          {/* <NewNoteForm addNote={addNote} /> */}
-          <NoteList user={user} />
+          <RooftopList user={user} />
         </>
         :
         <AuthPage setUser={setUser} />

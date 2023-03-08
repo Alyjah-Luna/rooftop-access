@@ -1,4 +1,4 @@
-const Note = require('../../models/note')
+const Rooftop = require('../../models/rooftops')
 
 module.exports = {
     create,
@@ -6,13 +6,13 @@ module.exports = {
 }
 
 async function create(req, res) {
-    const note = new Note({
+    const rooftop = new Rooftop({
         text: req.body.text,
         user: req.body.user,
     });
     try {
-        const savedNote = await note.save();
-        res.json(savedNote);
+        const savedRooftop = await rooftop.save();
+        res.json(savedRooftop);
     } catch (err) {
         res.status(400).json(err);
     }
@@ -20,6 +20,6 @@ async function create(req, res) {
 
 async function index(req, res) {
     const userId = req.user._id;
-    const notes = await Note.find({ user: userId });
-    res.json(notes);
+    const rooftops = await Rooftop.find({ user: userId });
+    res.json(rooftops);
 }
